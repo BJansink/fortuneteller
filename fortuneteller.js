@@ -1,3 +1,15 @@
+// Ask user for name
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
+  readline.question('Who are you?\n', name => {
+    console.log(`Let us look at your future, ${name}!`);
+    readline.close();
+    console.log(prediction())
+  });
+
 // Defining random words for responses
 const mainCharacter = ["You", "Your sister", "Your dog", "You firstborn", "Your biggest enemy"]
 const verbs = ["eat", "caress", "laugh at", "console", "marry"]
@@ -18,5 +30,3 @@ const prediction = (main, verb, subj, loc, time) => {
     //return the sentence complete
     return `${main} will ${verb} ${subj} ${loc}. This will happen in the year ${time}.`
 }
-
-console.log(prediction())
